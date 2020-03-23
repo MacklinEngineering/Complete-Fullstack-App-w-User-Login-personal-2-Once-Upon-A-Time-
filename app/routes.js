@@ -9,14 +9,45 @@ module.exports = function(app, passport, db) {
 
     // PROFILE SECTION =========================
     app.get('/profile', isLoggedIn, function(req, res) {
+      if(req.user.local.email){
+        //console.log(req.user.local)
         db.collection('messages').find().toArray((err, result) => {
+          //console.log(result)
+          console.log(req)
           if (err) return console.log(err)
           res.render('profile.ejs', {
-            user : req.user,
+            user: req.user,
             messages: result
           })
         })
+      }
     });
+
+    // PROFILE SECTION =========================
+    app.get('/save', isLoggedIn, function(req, res) {
+      if(req.user.local.email){
+        //console.log(req.user.local)
+        db.collection('messages').find().toArray((err, result) => {
+          //console.log(result)
+          console.log(req)
+          if (err) return console.log(err)
+          res.render('save.ejs', {
+            user: req.user,
+            messages: result
+          })
+        })
+      }
+    });
+
+  //   app.get(`/profile${user.local.email}`, isLoggedIn, function(req, res) {
+  //     db.collection('messages').find().toArray((err, result) => {
+  //       if (err) return console.log(err)
+  //       res.render('profile.ejs', {
+  //         user : req.user,
+  //         messages: result
+  //       })
+  //     })
+  // });
 
     // LOGOUT ==============================
     app.get('/logout', function(req, res) {
@@ -27,7 +58,7 @@ module.exports = function(app, passport, db) {
 // message board routes ===============================================================
 
     app.post('/messages', (req, res) => {
-      db.collection('messages').save({name: req.body.name, msg: req.body.msg, thumbUp: 0, thumbDown:0}, (err, result) => {
+      db.collection('messages').save({name: req.body.name, msg: req.body.msg, thumbUp: 0, thumbDown:0, like:"maybe"}, (err, result) => {
         if (err) return console.log(err)
         console.log('saved to database')
         res.redirect('/profile')
@@ -36,9 +67,27 @@ module.exports = function(app, passport, db) {
 
     app.put('/messages', (req, res) => {
       db.collection('messages')
+      .findOneAndUpdate({name: req.body.name, msg: req.body.msg, like: "maybe"}, {
+        $set: {
+          thumbUp:req.body.thumbUp + 1,
+          like: "def"
+        }
+      }, {
+        sort: {_id: -1},
+        upsert: true
+      }, (err, result) => {
+        if (err) return res.send(err)
+        res.send(result)
+      })
+    })
+
+    app.put('/thumbDown', (req, res) => {
+      db.collection('messages')
       .findOneAndUpdate({name: req.body.name, msg: req.body.msg}, {
         $set: {
-          thumbUp:req.body.thumbUp + 1
+          thumbUp:req.body.thumbUp - 1
+          //thumbDown:req.body.thumbDown - 1
+
         }
       }, {
         sort: {_id: -1},
