@@ -2,6 +2,134 @@ body{
   padding-top:80px;
   word-wrap:break-word;
 }
-img{
+/* img{
   height: 200px;
+} */
+
+body{
+  padding-top:100px;
+  word-wrap:break-word;
+  /* background-image: url("img/TellMeAStory.png"); */
+  background-image: url("https://media.giphy.com/media/FxvwjCXc6CSrK/giphy.gif");
+  background-size: cover;
+  background-position: bottom;
+  background-repeat: no-repeat;
+  margin-top: 200px;
+
+
 }
+
+.jumbotron {
+  padding: 30px;
+  margin-bottom: 30px;
+  font-size: 21px;
+  font-weight: 200;
+  line-height: 2.1428571435;
+  background-color: transparent;
+
+}
+
+.jumbotron p{
+  margin-bottom: 100px;
+}
+
+/* #chatpic{ */
+  /* display: none; */
+  /* background-image: url("https://www.thebloggerproject.com/wp-content/uploads/2015/05/coffee-chats1.png"); */
+  /* background-size: cover; */
+  /* color: rgba(255, 0, 0, 0.5); */
+  /* height: 300px;
+  width: 700px;
+  margin: 0 auto;
+} */
+
+/* img{
+  height: 500px;
+} */
+#landingpageh1{
+  font-family: fantasy;
+  color: white;
+  font-size: 70px;
+  padding-top: 110px;
+}
+
+#profileh1{
+  font-family: fantasy;
+  color: white;
+  font-size: 70px;
+}
+
+.jumbotron h1{
+  color: white;
+}
+
+h2, #profileMessges, li.message{
+ color: white;
+}
+
+#profileh1{
+  padding-top: 0px;
+}
+
+#profilebody{
+  margin-top: 0px;
+  background-image: url("https://media.giphy.com/media/JymmJZc86eFEY/giphy.gif");
+}
+
+label{
+  color: rgb(152, 52, 49);
+  font-size: 20px;
+}
+
+#storyinputfield{
+  rows: 20;
+  columns: 80;
+}
+
+.well{
+  background-color: rgba(255,255,255,0.2);
+}
+
+/* #chatpic {
+  background-image: url("https://www.thebloggerproject.com/wp-content/uploads/2015/05/coffee-chats1.png");
+  background-size: cover;
+} */
+.btn{
+  border-radius: 25px;
+  color: brown;
+  background-color: transparent;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-bottom: 0px;
+  margin-top: 325px;
+  font-weight: bold;
+}
+
+#profilelogoutbtn{
+  margin-top: 0px;
+}
+.btn-warning{
+  border-color: rgb(152, 52, 49);
+  font-weight: bold;
+}
+
+p{
+  color: white;
+}
+
+#profileUserInfoDetails{
+  color: rgb(152, 52, 49)}
+
+.btn-sm{
+  color: white;
+}
+
+div.well{
+
+}
+/* Evengually, I want to:
+1. Put the local/profile info on top of the add message thing, in a long skinny box up top
+2. move add message and messages below that
+3. Add trashcan to the comment to delete
+4. Add thumbsdown functionaility  */
+
