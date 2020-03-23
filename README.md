@@ -1,7 +1,5 @@
 ## Installation
 
-Fullstack-w-login-class-
-21 Savage Fan Page with login
-Only shows messages from user
+Second Complete Full Stack User Authentication Application
 
 ## 
